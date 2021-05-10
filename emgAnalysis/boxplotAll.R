@@ -7,7 +7,7 @@ tidy_data <- data %>% gather(parameter, value, `pct10.0.ref`:`pct90.1.dyn`)
 tidy_data <- tidy_data %>% mutate(Percentile = substr(parameter, 1, 5),
                                   side = substr(parameter, 7, 7),
                                   reference = substr(parameter, 9, 11)) %>%
-  mutate(Muscle = ifelse(side == 1, "Right (dominant) Trapz", "Left (non-dominant) Trapz"),
+  mutate(Muscle = ifelse(side == 1, "Right(dominant)", "Left(non-dominant)"),
          Equipment = ifelse(Equipment == "Ground", "Platform_ground", Equipment),
          Equipment = ifelse(Equipment == "Platform", "Platform_elevated", Equipment),
          value = value*100,
@@ -26,3 +26,13 @@ ggplot(emg_ref, aes(x = Percentile, y = value)) +
   theme(plot.title = element_text(face = "bold"),
         legend.position = c(.05, .95),
         legend.justification = c("left", "top"))
+
+ggplot(emg_ref, aes(x = Muscle, y = value)) + 
+  coord_cartesian(ylim = c(0, 2000)) +
+  geom_boxplot(aes(fill = Equipment, color = Muscle)) +
+  scale_fill_brewer(palette = "Set3") +
+  scale_color_manual(values=c("black", "red")) +
+  ylab("% RVC") +
+  ggtitle("Muscle Activity Normalized to Reference Voluntary Contraction") +
+  theme(plot.title = element_text(face = "bold")) +
+  facet_grid(. ~ Percentile)

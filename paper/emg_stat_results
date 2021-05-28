@@ -1,0 +1,40 @@
+Table 1: 10pct
+                                                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                       5.0648532  0.1107203  45.745  < 2e-16 ***
+EquipmentPlatform_elevated                       -0.7607905  0.1285616  -5.918 3.26e-09 ***
+EquipmentPlatform_ground                         -0.4756133  0.1550131  -3.068  0.00215 ** 
+MuscleRight(dominant)                             0.1864826  0.1292490   1.443  0.14907    
+TimeWork                                         -0.0022266  0.0004783  -4.655 3.24e-06 ***
+EquipmentPlatform_elevated:MuscleRight(dominant) -0.0271429  0.1175171  -0.231  0.81734    
+EquipmentPlatform_ground:MuscleRight(dominant)   -0.0259568  0.1436495  -0.181  0.85661    
+EquipmentPlatform_elevated:TimeWork               0.0029655  0.0005210   5.692 1.26e-08 ***
+EquipmentPlatform_ground:TimeWork                 0.0001871  0.0009448   0.198  0.84301    
+MuscleRight(dominant):TimeWork                   -0.0002440  0.0004789  -0.510  0.61037
+
+
+Table 2: 50pct
+                                                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                       5.619e+00  1.105e-01  50.841  < 2e-16 ***
+EquipmentPlatform_elevated                       -7.337e-01  1.283e-01  -5.717 1.09e-08 ***
+EquipmentPlatform_ground                         -4.286e-01  1.547e-01  -2.770  0.00561 ** 
+MuscleRight(dominant)                             1.302e-01  1.290e-01   1.009  0.31306    
+TimeWork                                         -2.227e-03  4.775e-04  -4.664 3.11e-06 ***
+EquipmentPlatform_elevated:MuscleRight(dominant) -4.690e-02  1.173e-01  -0.400  0.68932    
+EquipmentPlatform_ground:MuscleRight(dominant)   -6.797e-02  1.434e-01  -0.474  0.63552    
+EquipmentPlatform_elevated:TimeWork               2.856e-03  5.201e-04   5.490 4.01e-08 ***
+EquipmentPlatform_ground:TimeWork                -4.929e-05  9.432e-04  -0.052  0.95833    
+MuscleRight(dominant):TimeWork                   -2.146e-04  4.781e-04  -0.449  0.65357 
+
+
+Table 3: 90pct
+                                                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                       6.1247171  0.1113006  55.029  < 2e-16 ***
+EquipmentPlatform_elevated                       -0.6841350  0.1292354  -5.294 1.20e-07 ***
+EquipmentPlatform_ground                         -0.3720125  0.1558255  -2.387    0.017 *  
+MuscleRight(dominant)                             0.0899073  0.1299264   0.692    0.489    
+TimeWork                                         -0.0021309  0.0004808  -4.432 9.34e-06 ***
+EquipmentPlatform_elevated:MuscleRight(dominant) -0.0854814  0.1181330  -0.724    0.469    
+EquipmentPlatform_ground:MuscleRight(dominant)   -0.1033685  0.1444023  -0.716    0.474    
+EquipmentPlatform_elevated:TimeWork               0.0026519  0.0005237   5.064 4.11e-07 ***
+EquipmentPlatform_ground:TimeWork                -0.0002523  0.0009497  -0.266    0.791    
+MuscleRight(dominant):TimeWork                   -0.0001481  0.0004814  -0.308    0.758 

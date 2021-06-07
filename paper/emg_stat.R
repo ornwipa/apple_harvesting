@@ -1,14 +1,14 @@
 library(mgcv)  
 
-summary(gam(log(value) ~ Equipment + Muscle + Equipment*Muscle + TimeWork + Equipment*TimeWork + Muscle*TimeWork, 
+summary(gam(log(value) ~ Equipment + Muscle + TimeWork,#+ Equipment*Muscle + Equipment*TimeWork + Muscle*TimeWork,
             random = ~Equipment|Subject, 
             data = pct10, family = "scat"))
 
-summary(gam(log(value) ~ Equipment + Muscle + Equipment*Muscle + TimeWork + Equipment*TimeWork + Muscle*TimeWork, 
+summary(gam(log(value) ~ Equipment + Muscle + TimeWork,#+ Equipment*Muscle + Equipment*TimeWork + Muscle*TimeWork,
             random = ~Equipment|Subject, 
             data = pct50, family = "scat"))
 
-summary(gam(log(value) ~ Equipment + Muscle + Equipment*Muscle + TimeWork + Equipment*TimeWork + Muscle*TimeWork, 
+summary(gam(log(value) ~ Equipment + Muscle + TimeWork,#+ Equipment*Muscle + Equipment*TimeWork + Muscle*TimeWork,
             random = ~Equipment|Subject, 
             data = pct90, family = "scat"))
 

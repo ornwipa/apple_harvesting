@@ -7,9 +7,10 @@ tidy_data <- data %>% gather(parameter, value, `pct10.0.ref`:`pct90.1.dyn`)
 tidy_data <- tidy_data %>% mutate(Percentile = substr(parameter, 1, 5),
                                   side = substr(parameter, 7, 7),
                                   reference = substr(parameter, 9, 11)) %>%
-  mutate(Muscle = ifelse(side == 1, "Right(dominant)", "Left(non-dominant)"),
-         Equipment = ifelse(Equipment == "Ground", "Platform_ground", Equipment),
-         Equipment = ifelse(Equipment == "Platform", "Platform_elevated", Equipment),
+  mutate(Muscle = ifelse(side == 1, "Dominant", "Non-dominant"),
+         Equipment = ifelse(Equipment == "Ground", "2_Ground", Equipment),
+         Equipment = ifelse(Equipment == "Platform", "1_Platform", Equipment),
+         Equipment = ifelse(Equipment == "Ladder", "0_Ladder", Equipment),
          value = value*100,
          Percentile = ifelse(Percentile == "pct10", "10th", 
                              ifelse(Percentile == "pct50", "50th", "90th")))
@@ -28,7 +29,7 @@ ggplot(emg_ref, aes(x = Percentile, y = value)) +
         legend.justification = c("left", "top"))
 
 ggplot(emg_ref, aes(x = Muscle, y = value)) + 
-  coord_cartesian(ylim = c(0, 2000)) +
+  # coord_cartesian(ylim = c(0, 2000)) +
   geom_boxplot(aes(fill = Equipment, color = Muscle)) +
   scale_fill_brewer(palette = "Set3") +
   scale_color_manual(values=c("black", "red")) +

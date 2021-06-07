@@ -1,0 +1,22 @@
+Range = 90th Percentile - 10th Percentile
+
+Parametric coefficients:
+                      Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          5.4046001  0.0720301  75.033  < 2e-16 ***
+Equipment1_Platform -0.2282189  0.0603246  -3.783 0.000155 ***
+Equipment2_Ground   -0.3210754  0.0737703  -4.352 1.35e-05 ***
+MuscleNon-dominant   0.0654178  0.0512565   1.276 0.201855    
+TimeWork            -0.0006873  0.0002458  -2.797 0.005165 ** 
+
+Parametric coefficients:
+                                         Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                             5.7282175  0.1150881  49.772  < 2e-16 ***
+Equipment1_Platform                    -0.7640960  0.1326559  -5.760 8.41e-09 ***
+Equipment2_Ground                      -0.4600170  0.1591744  -2.890  0.00385 ** 
+MuscleNon-dominant                     -0.0346279  0.1314912  -0.263  0.79228    
+TimeWork                               -0.0021771  0.0004930  -4.416 1.01e-05 ***
+Equipment1_Platform:MuscleNon-dominant  0.1129690  0.1195558   0.945  0.34471    
+Equipment2_Ground:MuscleNon-dominant    0.1431879  0.1461415   0.980  0.32719    
+Equipment1_Platform:TimeWork            0.0024998  0.0005300   4.716 2.40e-06 ***
+Equipment2_Ground:TimeWork             -0.0005054  0.0009612  -0.526  0.59904    
+MuscleNon-dominant:TimeWork             0.0001087  0.0004872   0.223  0.82342 

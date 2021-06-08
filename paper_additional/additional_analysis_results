@@ -1,5 +1,6 @@
 Range = 90th Percentile - 10th Percentile
 
+--- no interaction
 Parametric coefficients:
                       Estimate Std. Error z value Pr(>|z|)    
 (Intercept)          5.4046001  0.0720301  75.033  < 2e-16 ***
@@ -8,6 +9,8 @@ Equipment2_Ground   -0.3210754  0.0737703  -4.352 1.35e-05 ***
 MuscleNon-dominant   0.0654178  0.0512565   1.276 0.201855    
 TimeWork            -0.0006873  0.0002458  -2.797 0.005165 ** 
 
+
+--- with interactions
 Parametric coefficients:
                                          Estimate Std. Error z value Pr(>|z|)    
 (Intercept)                             5.7282175  0.1150881  49.772  < 2e-16 ***
@@ -20,3 +23,81 @@ Equipment2_Ground:MuscleNon-dominant    0.1431879  0.1461415   0.980  0.32719
 Equipment1_Platform:TimeWork            0.0024998  0.0005300   4.716 2.40e-06 ***
 Equipment2_Ground:TimeWork             -0.0005054  0.0009612  -0.526  0.59904    
 MuscleNon-dominant:TimeWork             0.0001087  0.0004872   0.223  0.82342 
+
+
+> lddr <- data_var %>% filter(Equipment == "0_Ladder") %>% 
++   filter(Subject == "Subj713" | Subject == "Subj714" |
++            Subject == "Subj715" | Subject == "Subj716") %>%
++   # note: omit Subj709 and Subj711 as they have only one side
++   filter(TimeWork <= 360 & Muscle == "Non-dominant")
+> friedman.test(y=lddr$range, groups=factor(lddr$TimeWork), blocks=lddr$Subject) 
+
+	Friedman rank sum test
+
+data:  lddr$range, factor(lddr$TimeWork) and lddr$Subject
+Friedman chi-squared = 68.086, df = 35, p-value = 0.000676
+
+> lddr <- data_var %>% filter(Equipment == "0_Ladder") %>% 
++   filter(Subject == "Subj713" | Subject == "Subj714" |
++            Subject == "Subj715" | Subject == "Subj716") %>%
++   # note: omit Subj709 and Subj711 as they have only one side
++   filter(TimeWork <= 360 & Muscle == "Dominant")
+> friedman.test(y=lddr$range, groups=factor(lddr$TimeWork), blocks=lddr$Subject) 
+
+	Friedman rank sum test
+
+data:  lddr$range, factor(lddr$TimeWork) and lddr$Subject
+Friedman chi-squared = 73.333, df = 35, p-value = 0.0001579
+
+
+> pltf <- data_var %>% filter(Equipment == "1_Platform") %>% 
++   filter(Subject == "Subj701" | Subject == "Subj702" |
++            Subject == "Subj717" | Subject == "Subj718" |
++            Subject == "Subj719" | Subject == "Subj720") %>%
++   filter(TimeWork <= 360 & Muscle == "Non-dominant")
+> friedman.test(y=pltf$range, groups=factor(pltf$TimeWork), blocks=pltf$Subject) 
+
+	Friedman rank sum test
+
+data:  pltf$range, factor(pltf$TimeWork) and pltf$Subject
+Friedman chi-squared = 45.155, df = 35, p-value = 0.1168
+
+
+> pltf <- data_var %>% filter(Equipment == "1_Platform") %>% 
++   filter(Subject == "Subj701" | Subject == "Subj702" |
++            Subject == "Subj717" | Subject == "Subj718" |
++            Subject == "Subj719" | Subject == "Subj720") %>%
++   filter(TimeWork <= 360 & Muscle == "Dominant")
+> friedman.test(y=pltf$range, groups=factor(pltf$TimeWork), blocks=pltf$Subject) 
+
+	Friedman rank sum test
+
+data:  pltf$range, factor(pltf$TimeWork) and pltf$Subject
+Friedman chi-squared = 37.505, df = 35, p-value = 0.355
+
+
+> grnd <- data_var %>% filter(Equipment == "2_Ground") %>% 
++   filter(Subject == "Subj705" | Subject == "Subj706" |
++            Subject == "Subj708" | Subject == "Subj721" |
++            Subject == "Subj722" | Subject == "Subj724") %>%
++   filter(TimeWork <= 180 & Muscle == "Non-dominant")
+> friedman.test(y=grnd$range, groups=factor(grnd$TimeWork), blocks=grnd$Subject) 
+
+	Friedman rank sum test
+
+data:  grnd$range, factor(grnd$TimeWork) and grnd$Subject
+Friedman chi-squared = 44.842, df = 17, p-value = 0.000257
+
+
+> grnd <- data_var %>% filter(Equipment == "2_Ground") %>% 
++   filter(Subject == "Subj705" | Subject == "Subj706" |
++            Subject == "Subj708" | Subject == "Subj721" |
++            Subject == "Subj722" | Subject == "Subj724") %>%
++   filter(TimeWork <= 180 & Muscle == "Dominant")
+> friedman.test(y=grnd$range, groups=factor(grnd$TimeWork), blocks=grnd$Subject) 
+
+	Friedman rank sum test
+
+data:  grnd$range, factor(grnd$TimeWork) and grnd$Subject
+Friedman chi-squared = 49.637, df = 17, p-value = 4.808e-05
+

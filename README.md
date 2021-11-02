@@ -1,0 +1,2 @@
+# EMG Case Studies in Apple Harvesting Workers
+The article is published in Thamsuwan, O., & Johnson, P. W. (2021). Machine learning methods for electromyography error detection in field research: An application in full-shift field assessment of shoulder muscle activity in apple harvesting workers. Applied ergonomics, 98, 103607. Advance online publication. [https://doi.org/10.1016/j.apergo.2021.103607](https://doi.org/10.1016/j.apergo.2021.103607)
